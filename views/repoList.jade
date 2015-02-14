@@ -1,0 +1,23 @@
+extends layout.jade
+
+block content
+	div.row
+		div.one.column
+		div.two.columns
+			h5 Repo
+		div.eight.columns
+			h5 Description
+	each item in repos
+		div.row
+			div.one.column
+			div.two.columns      
+				a(href='/repo/view/' + item.name)
+					= item.name
+			div.eight.columns
+				if item.description == null
+					| 
+				else
+					= item.description
+
+			
+			
