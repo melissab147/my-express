@@ -20,11 +20,8 @@ app.get('/', function(req, res){
     res.render('index.jade');
 })
 
-require('./mongo/noteView')(app)
-require('./mongo/contextList')(app)
-require('./mongo/contextView')(app)
-require('./mongo/accountList')(app)
-require('./mongo/accountView')(app)
+require('./mongo/repoList')(app)
+require('./mongo/repoView')(app)
 
 
 var server = app.listen(process.env.PORT || 3000, function() {
