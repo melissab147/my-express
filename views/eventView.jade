@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1= repo.name
+    p= repo.description
+    a(href= repo.html_url)
+        = "View repo"
