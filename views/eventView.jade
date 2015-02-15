@@ -1,7 +1,18 @@
 extends layout
 
 block content
-    h1= repo.name
-    p= repo.description
-    a(href= repo.html_url)
-        = "View repo"
+    h5
+        b= item.type 
+        = " for "
+        b= item.repo.name
+    b= "User: " 
+    = item.actor.login
+    br
+    b= "Created at: " 
+    = item.created_at
+    br
+    b= "Public? " 
+    if item.public==true
+        = "yes"
+    else
+        = "no"

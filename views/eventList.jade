@@ -1,23 +1,30 @@
 extends layout.jade
 
 block content
+	h4
+		b= "Last 30 Events in ucdd2-sp15"
 	div.row
 		div.one.column
-		div.two.columns
+			h5
+		div.three.columns
+			h5 Event Type
+		div.three.columns
 			h5 Repo
-		div.eight.columns
-			h5 Description
-	each item in repos
+		div.three.columns
+			h5 User
+
+	-var index = 0
+	each item in events
 		div.row
 			div.one.column
-			div.two.columns      
-				a(href='/repo/view/' + item.name)
-					= item.name
-			div.eight.columns
-				if item.description == null
-					| 
-				else
-					= item.description
+				a(href='/event/view/' + item.id)
+					= ++index
+			div.three.columns
+				= item.type
+			div.three.columns      
+				= item.repo.name
+			div.three.columns
+				= item.actor.login
 
 			
 			

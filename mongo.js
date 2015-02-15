@@ -22,7 +22,8 @@ app.get('/', function(req, res){
 
 require('./mongo/repoList')(app)
 require('./mongo/repoView')(app)
-
+require('./mongo/eventList')(app)
+require('./mongo/eventView')(app)
 
 var server = app.listen(process.env.PORT || 3000, function() {
 

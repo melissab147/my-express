@@ -1,20 +1,20 @@
 module.exports = function(app){
 
-    app.get('/repo/view/:name', function(req, res) {
+    app.get('/event/view/:id', function(req, res) {
 
         // get the repos collection
-        var repos = app.db.get('repos')
+        var events = app.db.get('events')
 
-		//query to get repo with matching name
+        //query to get repo with matching name
         var q = {
-            'name': req.params.name
+            'id': req.params.id
         }
 
-        repos.findOne(q, function(err, repo) {
+        events.findOne(q, function(err, item) {
 
-            res.render('repoView.jade', {
-                repo: repo
-            })        		
+            res.render('eventView.jade', {
+                item: item
+            })              
         })
     })
 }

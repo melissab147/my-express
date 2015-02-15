@@ -1,17 +1,20 @@
 module.exports = function(app){
-    app.get('/repo/list', function(req, res) {
+    
+    app.get('/event/list', function(req, res) {
 
         // get the repos collection
-        var repos = app.db.get('repos')
+        var events = app.db.get('events')
 
         // empty query to get all repos
         var q = {}
 
         // execute the query
-        repos.find(q, function(err, repo) {
+        events.find(q, {
+            limit: 30
+        }, function(err, e) {
 
-            res.render('repoList.jade', {
-                repos: repo
+            res.render('eventList.jade', {
+                events: e
             })
         })
 
